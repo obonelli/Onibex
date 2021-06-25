@@ -18,3 +18,4 @@ xcuserdata
 # VSCode
 .history/
 
+node_modules/

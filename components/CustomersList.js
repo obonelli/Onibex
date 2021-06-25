@@ -198,7 +198,7 @@ const CustomersList = ({ navigation }) => {
             />                
             </View> 
             <Divider style={styles.divider} orientation="vertical" />
-            <View>
+            <View style={styles.FirstContainer}>
               {
               DATA.map((l, i) => (
                 <ListItem key={i} bottomDivider>
@@ -209,17 +209,17 @@ const CustomersList = ({ navigation }) => {
                     {Item}
                   </ListItem.Content>
                   <ListItem style={styles.SubListContainer}>
-                  <ListItem.Content>
-                  <ListItem.Title>
-                    <Button
-                    title="Synchronize Products"
-                    type="outline"
-                  />
-                  </ListItem.Title>
-                    <ListItem.Subtitle>
-                    <Text>Last sysnc 05/20/2021</Text>
-                    </ListItem.Subtitle>
-                    </ListItem.Content>              
+                   <ListItem.Content style={styles.SubListContainer_2}>
+                    <ListItem.Title>
+                      <Button
+                      title="Synchronize Products"
+                      type="outline"
+                    />
+                      </ListItem.Title>
+                      <ListItem.Subtitle>
+                       <Text>Last sysnc 05/20/2021</Text>
+                      </ListItem.Subtitle>
+                   </ListItem.Content>              
                   </ListItem>
                 </ListItem>
               ))
@@ -232,6 +232,9 @@ const CustomersList = ({ navigation }) => {
 export default CustomersList
 
 const styles = StyleSheet.create({
+  FirstContainer:{
+    flex: 0.5,
+  },
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
@@ -289,5 +292,8 @@ const styles = StyleSheet.create({
   },
   SubListContainer:{
     flex: 1,
+  },
+  SubListContainer_2:{
+    textAlign: "right",
   }
 })

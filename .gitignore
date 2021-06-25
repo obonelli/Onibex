@@ -1,1 +1,20 @@
-node_modules/
+# Expo
+.expo
+__generated__
+web-build
+
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.xccheckout
+*.xcscmblueprint
+xcuserdata
+
+# VSCode
+.history/
+

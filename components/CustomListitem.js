@@ -22,20 +22,24 @@ const CustomListitem = ({ id, chatName, enterChat, navigation  }) => {
 
     return (
         <ListItem>            
-            <List.Section style={styles.ContainerList}>            
+            <List.Section style={styles.ContainerList}>
+            <List.Accordion style={{ backgroundColor: "white" }}
+                    title="Cases"
+                    left={props => <List.Icon {...props} icon="cart" />}
+                    expanded={expanded}
+                    onPress={handlePress}>
+                    <List.Item title="Create case"/>
+                </List.Accordion>
+                <List.Item
+                title="Surgery"
+                description=""
+                left={props => <List.Icon {...props} icon="account-multiple-outline" />}
+                />           
                 <List.Item
                 title="Customers"
                 description=""
                 left={props => <List.Icon {...props} icon="account-multiple-outline" />}
                 />
-                <List.Accordion style={{ backgroundColor: "white" }}
-                    title="Cases"
-                    left={props => <List.Icon {...props} icon="cart" />}
-                    expanded={expanded}
-                    onPress={handlePress}>
-                    <List.Item title="First item" />
-                    <List.Item title="Second item" />
-                </List.Accordion>
                 <List.Item
                     title="Saved cases"
                     description=""

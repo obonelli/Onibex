@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native'
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Button } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import { Button  } from 'react-native-elements';
 import CustomListItem from "../components/CustomListitem";
 import { Avatar } from "react-native-elements";
 import CustomersList from "../components/CustomersList";
@@ -48,12 +49,14 @@ const HomeScreen = ({ navigation }) => {
                 <View style={styles.mainContainer}>                    
                     <View style={styles.mainMenu}>
                         <CustomListItem />
+                        <View style={styles.SubMenu}>
                         <Button
                             style={styles.logoutScreenButton}
                             title="Logout"
                             type="outline"
                             onPress={signOutUser}
                         />
+                        </View>
                     </View>
                     <View style={styles.secondMenu}>
                         <CustomersList />
@@ -69,7 +72,7 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
     logoutScreenButton:{
-        
+        width: '100%',
     },
     Container:{
         flex: 1, 
@@ -83,12 +86,21 @@ const styles = StyleSheet.create({
     mainMenu:{
         backgroundColor: 'white',
         flex: 0.2,
+        flexDirection: "column",
         width: width_proportion,
         minHeight: height_proportion,
-        height: height_proportion
+        height: height_proportion,
+    },
+    SubMenu:{
+        backgroundColor: 'white',
+        flex: 1,
+        width: 100,
+        height: height_proportion,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     secondMenu:{
-        flex: 0.5,
+        flex: 0.75,
         width: width_proportion_second,
         minHeight: height_proportion,
         marginLeft: 30

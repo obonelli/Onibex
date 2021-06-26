@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   SubListContainer:{
-    flex: 1,
+    flex: 0.3,
   },
   SubListContainer_2:{
     textAlign: "right",

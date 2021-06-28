@@ -1,19 +1,14 @@
-import React, { useLayoutEffect, useState } from 'react'
-import { SafeAreaView } from 'react-native'
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
-import { Button  } from 'react-native-elements';
-import CustomListItem from "../components/CustomListitem";
-import { Avatar } from "react-native-elements";
+import React, { useLayoutEffect } from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Avatar, Button } from 'react-native-elements';
 import CustomersList from "../components/CustomersList";
-import CasesSteeps from '../components/CasesSteeps';
+import CustomListItem from "../components/CustomListitem";
 //import { auth, db } from "../firebase";
 const width_proportion = '18%';
 const width_proportion_second = '80%';
 const width_proportion_main = '100%';
 const height_proportion = '100%';
 const HomeScreen = ({ navigation }) => {
-    
-
     const signOutUser = () => {
         /*auth.signOut().then(() => {
             navigation.replace("Login");
@@ -48,7 +43,7 @@ const HomeScreen = ({ navigation }) => {
             <ScrollView style={styles.SubContainer}> 
                 <View style={styles.mainContainer}>                    
                     <View style={styles.mainMenu}>
-                        <CustomListItem />
+                        <CustomListItem nav={navigation}/>
                         <View style={styles.SubMenu}>
                         <Button
                             style={styles.logoutScreenButton}

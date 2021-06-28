@@ -1,12 +1,11 @@
-import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import LoginScreen from './screens/LoginScreen';
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import RegisterScreen from './screens/RegisterScreen';
-import HomeScreen from './screens/HomeScreen';
+import React from "react";
+import "react-native-gesture-handler";
+import CreateCase from "./screens/CreateCaseScreen";
+import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 //import "./tailwind.css";
 
 const Stack = createStackNavigator();
@@ -20,7 +19,7 @@ const globalScreenOptions = {
     flex: 0.2,
     justifyContent: "center", // THIS RIGHT HERE
   },
-}
+};
 
 export default function App() {
   return (
@@ -32,16 +31,8 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="CreateCase" component={CreateCase} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

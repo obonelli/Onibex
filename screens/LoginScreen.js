@@ -1,7 +1,6 @@
-import { useLayoutEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import React, { useLayoutEffect, useState } from 'react';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Button } from 'react-native-elements';
 
 const LoginScreen = ({ navigation }) => {
@@ -94,6 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     width: 500,
     borderBottomColor: '#000',
+    borderRadius: 40,
   },
   label:{
     paddingLeft: 10,

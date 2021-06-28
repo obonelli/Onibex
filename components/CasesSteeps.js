@@ -1,17 +1,16 @@
-import React from 'react';
-import { View, ScrollView } from 'react-native'
-import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
+import { Button } from 'react-native-elements';
+import Grid from '@material-ui/core/Grid';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import DateRangeIcon from '@material-ui/icons/DateRange';
-import Grid from '@material-ui/core/Grid';
+import Stepper from '@material-ui/core/Stepper';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import {Text, StyleSheet} from 'react-native';
+import Typography from '@material-ui/core/Typography';
+import DateRangeIcon from '@material-ui/icons/DateRange';
 import ScheduleIcon from '@material-ui/icons/Schedule';
+import React from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 
 
@@ -67,7 +66,7 @@ export default function CasesSteeps() {
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
-              <StepLabel>{label}</StepLabel>
+            <StepLabel>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>
@@ -80,146 +79,144 @@ export default function CasesSteeps() {
         ) : (
           <View>
             <Typography className={classes.instructions}>
-                <Grid container spacing={3} style={{ marginLeft: 8}}>
-                <Text style={{ fontSize: 14}}>{getStepContent(activeStep)}</Text>
-                    <Grid container style={{ marginBottom: 8}}>
-                        <Grid item xs={4}>
-                        <TextField
-                            className={classes.margin}
-                            id="input-with-icon-textfield"
-                            label="Surgey Date"
-                            InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="end">
-                                <DateRangeIcon />
-                                </InputAdornment>
-                            ),
-                            }}
-                        />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                className={classes.margin}
-                                id="input-with-icon-textfield"
-                                label="Surgey Time"
-                                InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                    <ScheduleIcon />
-                                    </InputAdornment>
-                                ),
-                                }}
-                            />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                className={classes.margin}
-                                id="input-with-icon-textfield"
-                                label="Duration"
-                                InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                    <ScheduleIcon />
-                                    </InputAdornment>
-                                ),
-                                }}
-                            />
-                        </Grid>
-                    </Grid>
-                    <Grid container  style={{ marginBottom: 8}}>
-                        <Grid item xs={4}>
-                        <TextField
-                            className={classes.margin}
-                            id="input-with-icon-textfield"
-                            label="Ship Date"
-                            InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="end">
-                                <DateRangeIcon />
-                                </InputAdornment>
-                            ),
-                            }}
-                        />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                className={classes.margin}
-                                id="input-with-icon-textfield"
-                                label="Due Date"
-                                InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                    <DateRangeIcon />
-                                    </InputAdornment>
-                                ),
-                                }}
-                            />
-                        </Grid>
-                        <Grid item xs={4}>
-                        <TextField
-                            id="filled-select-currency-native"
-                            select
-                            label="Case Type"
-                            SelectProps={{
-                            native: true,
-                            }}
-                            variant="filled"
-                        >
-                            <option key='1' value='{option.value}'>
-                            data 1
-                            </option>
-                        </TextField>
-                        </Grid>
-                    </Grid>
-                    <Grid container style={{ marginBottom: 8}}>
-                        <Grid item xs={4}>
-                        <TextField
-                            className={classes.margin}
-                            id="input-with-icon-textfield"
-                            label="Ship Method"
-                            InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="end">
-                                <DateRangeIcon />
-                                </InputAdornment>
-                            ),
-                            }}
-                        />
-                        </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                className={classes.margin}
-                                id="input-with-icon-textfield"
-                                label="Ship-to Address"
-                                InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                    <DateRangeIcon />
-                                    </InputAdornment>
-                                ),
-                                }}
-                            />
-                        </Grid>
-                        <Grid item xs={4}>
-                        
-                        </Grid>
-                    </Grid>
+              <Grid container spacing={3} style={{ marginLeft: 8 }}>
+                <Text style={{ fontSize: 14 }}>{getStepContent(activeStep)}</Text>
+                <Grid container style={{ marginBottom: 8 }}>
+                  <Grid item xs={4}>
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield"
+                      label="Surgey Date"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="end">
+                            <DateRangeIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield"
+                      label="Surgey Time"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <ScheduleIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield"
+                      label="Duration"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <ScheduleIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
                 </Grid>
-            
+                <Grid container style={{ marginBottom: 8 }}>
+                  <Grid item xs={4}>
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield"
+                      label="Ship Date"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="end">
+                            <DateRangeIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield"
+                      label="Due Date"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <DateRangeIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextField
+                      id="filled-select-currency-native"
+                      select
+                      label="Case Type"
+                      SelectProps={{
+                        native: true,
+                      }}
+                      variant="filled"
+                    >
+                      <option key='1' value='{option.value}'>
+                        data 1
+                      </option>
+                    </TextField>
+                  </Grid>
+                </Grid>
+                <Grid container style={{ marginBottom: 8 }}>
+                  <Grid item xs={4}>
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield"
+                      label="Ship Method"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="end">
+                            <DateRangeIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <TextField
+                      className={classes.margin}
+                      id="input-with-icon-textfield"
+                      label="Ship-to Address"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <DateRangeIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+
+                  </Grid>
+                </Grid>
+              </Grid>
+
             </Typography>
-            <br />
-            <br />
             <View>
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 className={classes.backButton}
-              >
-                Back
-              </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
+                title="Back"
+              />
+              <Button
+                variant="contained"
+                color="primary" onClick={handleNext}
+                title={activeStep === steps.length - 1 ? 'Finish' : 'Next'} />
             </View>
           </View>
         )}

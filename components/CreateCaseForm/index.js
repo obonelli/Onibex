@@ -80,8 +80,8 @@ const CreateCaseForm = (props) => {
       <View>
         <View style={Styles.container}>
           <Steps config={config}>
-            <Step title="Surgeon" component={StepSurgeon} />
             <Step title="Hospital" component={StepHospital} />
+            <Step title="Surgeon" component={StepSurgeon} />
             <Step title="Products" component={Products} />
             <Step title="ReviewCase" component={ReviewCase} />
           </Steps>

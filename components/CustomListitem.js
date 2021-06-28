@@ -36,6 +36,7 @@ const CustomListitem = (props) => {
                 <List.Item
                     title="Customers"
                     description=""
+                    onPress={() => (navigation.replace('CustomersList'))}
                     left={props => <List.Icon {...props} icon="account-multiple-outline" />}
                 />
                 <List.Item

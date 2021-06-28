@@ -6,6 +6,7 @@ import React from 'react';
 import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Button, Divider, Icon, Input, ListItem } from 'react-native-elements';
 
+
 const DATA = [
   {
     icon: 'mail',

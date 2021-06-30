@@ -6,6 +6,9 @@ import styles from "./styles";
 
 const StepHospital = (props) => {
   const [token, setToken] = useState('');
+  const [date, setDate] = useState(new Date());
+  const handleCalendarClose = () => console.log("Calendar closed");
+  const handleCalendarOpen = () => console.log("Calendar opened");
 
 
   // useEffect(() => {

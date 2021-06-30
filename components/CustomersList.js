@@ -1,8 +1,8 @@
+import React, { useState } from 'react';
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { MailIcon } from "@material-ui/icons/Mail";
-import React from "react";
 import {
   ScrollView,
   StatusBar,
@@ -10,6 +10,8 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Modal,
+  Pressable
 } from "react-native";
 import { Button, Divider, Icon, Input, ListItem } from "react-native-elements";
 
@@ -112,6 +114,7 @@ const CustomersList = () => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
+  const [modalVisible, setModalVisible] = useState(false);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -192,6 +195,27 @@ const CustomersList = () => {
 
   return (
     <View>
+       <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
       <Text style={styles.maintitle}>Customers</Text>
       <View style={styles.root}>
         <Input
@@ -222,7 +246,7 @@ const CustomersList = () => {
             <ListItem style={styles.SubListContainer}>
               <ListItem.Content style={styles.SubListContainer_2}>
                 <ListItem.Title>
-                  <Button title="Synchronize Products" type="outline" />
+                  <Button title="Synchronize Products" type="outline" onPress={() => setModalVisible(true)}/>
                 </ListItem.Title>
                 <ListItem.Subtitle>
                   <Text>Last sysnc 05/20/2021</Text>
@@ -303,4 +327,45 @@ const styles = StyleSheet.create({
   SubListContainer_2: {
     textAlign: "right",
   },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
 });

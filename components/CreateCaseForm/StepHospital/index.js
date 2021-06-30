@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { View, Text } from "react-native";
 import { Input, Button } from "react-native-elements";
 import Wrapper from "../../commons/Wrapper";
 import styles from "./styles";
 
 const StepHospital = (props) => {
+  const [token, setToken] = useState('');
+
+
+  // useEffect(() => {
+  //   axios.get(`http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/API_SALES_QUOTATION_SRV/$metadata?sap-client=100`)
+  //   auth: {
+  //     username: BPINST,
+  //     password: Welcome1
+  //   }
+  //   }).then(res => { 
+  //     const token = res.data;
+  //     setToken(token);
+  //   })
+  // };
+
   return (
     <>
       <Wrapper>

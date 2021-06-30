@@ -12,9 +12,6 @@ const CustomListitem = (props) => {
     const handlePressReports = () => setExpandedReports(!expandedReports);
 
     const signOutUser = () => {
-        /*auth.signOut().then(() => {
-            navigation.replace("Login");
-        });*/
         navigation.replace("Login");
     };
 

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import { ListItem, Avatar } from "react-native-elements";
 import { List } from "react-native-paper";
 
-const CustomListitem = (props) => {
+const CustomListitem = (props,) => {
   const navigation = props.nav;
   const [expanded, setExpanded] = React.useState(false);
   const [expandedReports, setExpandedReports] = React.useState(false);
@@ -43,10 +43,10 @@ const CustomListitem = (props) => {
         <List.Item
           title="Customers"
           description=""
+          onPress={() => navigation.replace("Customers")}
           left={(props) => (
             <List.Icon {...props} icon="account-multiple-outline" />
           )}
-          onPress={() => navigation.replace("Customers")}
         />
         <List.Item
           title="Saved cases"

@@ -45,6 +45,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',  
         width: width_proportion_main,
         height: height_proportion
+    },
+    avatarList: {
+        backgroundColor: "white",
+        width: "100%",
+        marginLeft: 20,
     }
 })
 

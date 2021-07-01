@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from 'react';
 import { Text, View } from "react-native";
 import { Button } from "react-native-elements";
 import { Step, Steps } from "react-step-builder";
@@ -14,7 +14,7 @@ const ButtonNavigation = (props) => {
     <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
       <Button
         style={{ marginRight: 10 }}
-        title="Save for late"
+        title="Back"
         type="outline"
         onPress={props.prev}
       />
@@ -67,6 +67,7 @@ const Before = (props) => {
 };
 
 const CreateCaseForm = (props) => {
+
   const config = {
     before: Before,
     navigation: {
@@ -74,7 +75,7 @@ const CreateCaseForm = (props) => {
       location: "after",
     },
   };
-
+  
   return (
     <>
       <View>

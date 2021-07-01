@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View , Text} from 'react-native';
 import { Button } from 'react-native-elements';
 import CustomListItem from "../../components/CustomListitem";
 import CasesSteeps from "../../components/CasesSteeps";

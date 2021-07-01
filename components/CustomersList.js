@@ -37,87 +37,12 @@ const DATA = [
   },
 ];
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: "absolute",
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: "1px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-  root: {
-    padding: "2px 4px",
-    display: "flex",
-    alignItems: "center",
-    width: 400,
-  },
-  input: {
-    marginLeft: theme.spacing(1),
-    flex: 1,
-    borderWidth: 1,
-  },
-  iconButton: {
-    padding: 10,
-  },
-  divider: {
-    height: 28,
-    margin: 4,
-  },
-}));
-
-const Item = ({ item, onPress }) => (
-  <ScrollView>
-    <View>
-      <Grid container>
-        <Grid item xs={8}>
-          <TouchableOpacity style={styles.item} onPress={onPress}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.subTitle}>
-              <MailIcon
-                style={{ color: "#757575", marginRight: 8 }}
-                fontSize="small"
-              />
-              {item.subTitle}
-            </Text>
-          </TouchableOpacity>
-        </Grid>
-        <Grid item xs={4} style={{ paddingTop: 20 }}>
-          <Button
-            variant="outlined"
-            style={{ color: "#5CACF2", borderColor: "#5CACF2" }}
-          >
-            <Text>Synchronize Products</Text>
-          </Button>
-          <Text>Last sysnc 05/20/2021</Text>
-        </Grid>
-      </Grid>
-    </View>
-  </ScrollView>
-);
-
 const CustomersList = () => {
-  const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
   const [modalVisible, setModalVisible] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [title, setTitle] = useState("Kindred Hospital San Antonio");
+  const [subTitle, setSubTitle] = useState("jhon.peter@kindred.com");
 
   const onChangeSearch = query => setSearchQuery(query);
 
@@ -129,97 +54,41 @@ const CustomersList = () => {
     setOpen(false);
   };
 
-  const renderItem = ({ item }) => {
-    return <Item item={item} onPress={handleOpen} />;
+  const handleModal = ({title}) => {
+    setModalVisible(true);
+    //setTitle(DATA);
   };
-
-  const body = (
-    <View style={modalStyle} className={classes.paper}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} style={{ textAlign: "center" }}>
-          <Text style={styles.title}>Kindred Hospital San Antonio</Text>
-        </Grid>
-        <Grid item xs={6} style={{ textAlign: "center" }}>
-          <Text>Shipping Address</Text>
-          <TextField
-            id="filled-select-currency-native"
-            select
-            value="Kindred Hospital San Antonio"
-            SelectProps={{
-              native: true,
-            }}
-            variant="filled"
-          >
-            <option key="1" value="{option.value}">
-              Kindred Hospital San Antonio
-            </option>
-          </TextField>
-          <TextField
-            id="filled-multiline-static"
-            multiline
-            rows={4}
-            defaultValue="333 North Santa Rosa Street, San Antonio, Texas 78207"
-            variant="filled"
-          />
-        </Grid>
-        <Grid item xs={6} style={{ textAlign: "center" }}>
-          <Text>Billing Address</Text>
-          <TextField
-            id="filled-select-currency-native"
-            select
-            value="Kindred Hospital San Antonio"
-            SelectProps={{
-              native: true,
-            }}
-            variant="filled"
-          >
-            <option key="1" value="{option.value}">
-              Kindred Hospital San Antonio
-            </option>
-          </TextField>
-          <TextField
-            id="filled-multiline-static"
-            multiline
-            rows={4}
-            defaultValue="333 North Santa Rosa Street, San Antonio, Texas 78207"
-            variant="filled"
-          />
-        </Grid>
-        <Grid item xs={12} style={{ textAlign: "center" }}>
-          <Button
-            variant="contained"
-            style={{ color: "#fff", backgroundColor: "#39BFA7" }}
-          >
-            Select
-          </Button>
-        </Grid>
-      </Grid>
+  
+  function handleModal2() { 
+    return <Modal
+    animationType="fade"
+    transparent={true}
+    visible={modalVisible}
+    onRequestClose={() => {
+      Alert.alert("Modal has been closed.");
+      setModalVisible(!modalVisible);
+    }}
+  >
+    <View style={styles.centeredView}>
+      <View style={styles.modalView}>
+        <Text style={styles.modalText}>
+          {title}</Text>
+          <Text style={styles.modalText}>
+          {subTitle}</Text>
+        <Pressable
+          style={[styles.button, styles.buttonClose]}
+          onPress={() => setModalVisible(!modalVisible)}
+        >
+          <Text style={styles.textStyle}>Hide Modal</Text>
+        </Pressable>
+      </View>
     </View>
-  );
+  </Modal>
+  }
 
   return (
     <View styles={styles.mainView}>
-       <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+      {handleModal2()}
       <View style={styles.root}>
         <Searchbar
         style={styles.searchBar}
@@ -238,12 +107,11 @@ const CustomersList = () => {
                 <Icon name={l.icon} />
                 {l.subTitle}
               </ListItem.Subtitle>
-              {Item}
             </ListItem.Content>
             <ListItem style={styles.SubListContainer}>
               <ListItem.Content style={styles.SubListContainer_2}>
                 <ListItem.Title>
-                  <Button title="Synchronize Products" type="outline" onPress={() => setModalVisible(true)}/>
+                  <Button title="Synchronize Products" type="outline" onPress={handleModal}/>
                 </ListItem.Title>
                 <ListItem.Subtitle>
                   <Text>Last sysnc 05/20/2021</Text>
@@ -328,7 +196,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 0,
+    marginBottom: "30%",
+    marginLeft: "10%"
   },
   modalView: {
     margin: 20,

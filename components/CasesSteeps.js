@@ -12,8 +12,6 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',

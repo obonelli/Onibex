@@ -7,7 +7,6 @@ import Customers from "./screens/CustomersScreen";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
-//import "./tailwind.css";
 
 const Stack = createStackNavigator();
 

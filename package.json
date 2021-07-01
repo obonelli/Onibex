@@ -23,6 +23,7 @@
     "expo-status-bar": "~1.0.4",
     "namor": "^2.0.3",
     "react": "16.13.1",
+    "react-data-table-component": "^7.0.0-rc2",
     "react-datepicker": "^4.1.1",
     "react-devtools": "^4.13.5",
     "react-dom": "16.13.1",

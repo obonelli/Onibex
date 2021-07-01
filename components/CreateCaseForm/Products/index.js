@@ -3,10 +3,25 @@ import { View, Text } from "react-native";
 import { Input, Button } from "react-native-elements";
 import Wrapper from "../../commons/Wrapper";
 import styles from "./styles";
-import { Table, TableWrapper, Row } from "react-native-table-component";
+import { DataTable } from "react-native-paper";
 
-const tableHead = ["Item No.", "Description", "Quantify", "Case type", ""];
-const tableData = [];
+const data = [
+  { id: 1, title: "Conan the Barbarian", year: "1982" },
+  { id: 1, title: "Conan the Barbarian", year: "1982" },
+];
+const columns = [
+  {
+    name: "Title",
+    selector: "title",
+    sortable: true,
+  },
+  {
+    name: "Year",
+    selector: "year",
+    sortable: true,
+    right: true,
+  },
+];
 
 const Products = (props) => {
   return (
@@ -40,9 +55,70 @@ const Products = (props) => {
             </View>
 
             <View style={{ width: "50%" }}>
-              <Table>
-                <Row data={tableHead} />
-              </Table>
+              <DataTable>
+                <DataTable.Header>
+                  <DataTable.Title>Item No.</DataTable.Title>
+                  <DataTable.Title>Description</DataTable.Title>
+                  <DataTable.Title>Quantity</DataTable.Title>
+                  <DataTable.Title>Case type</DataTable.Title>
+                  <DataTable.Title></DataTable.Title>
+                </DataTable.Header>
+
+                <DataTable.Row>
+                  <DataTable.Cell>GAFXR</DataTable.Cell>
+                  <DataTable.Cell>
+                    Gorilla Ankle Fracture Kit. R3CON
+                  </DataTable.Cell>
+                  <DataTable.Cell>6.0</DataTable.Cell>
+                  <DataTable.Cell>Agency</DataTable.Cell>
+                  <DataTable.Cell numeric>X</DataTable.Cell>
+                </DataTable.Row>
+                <DataTable.Row>
+                  <DataTable.Cell>GAFXR</DataTable.Cell>
+                  <DataTable.Cell>
+                    Gorilla Ankle Fracture Kit. R3CON
+                  </DataTable.Cell>
+                  <DataTable.Cell>6.0</DataTable.Cell>
+                  <DataTable.Cell>Agency</DataTable.Cell>
+                  <DataTable.Cell numeric>X</DataTable.Cell>
+                </DataTable.Row>
+                <DataTable.Row>
+                  <DataTable.Cell>GAFXR</DataTable.Cell>
+                  <DataTable.Cell>
+                    Gorilla Ankle Fracture Kit. R3CON
+                  </DataTable.Cell>
+                  <DataTable.Cell>6.0</DataTable.Cell>
+                  <DataTable.Cell>Agency</DataTable.Cell>
+                  <DataTable.Cell numeric>X</DataTable.Cell>
+                </DataTable.Row>
+                <DataTable.Row>
+                  <DataTable.Cell>GAFXR</DataTable.Cell>
+                  <DataTable.Cell>
+                    Gorilla Ankle Fracture Kit. R3CON
+                  </DataTable.Cell>
+                  <DataTable.Cell>6.0</DataTable.Cell>
+                  <DataTable.Cell>Agency</DataTable.Cell>
+                  <DataTable.Cell numeric>X</DataTable.Cell>
+                </DataTable.Row>
+                <DataTable.Row>
+                  <DataTable.Cell>GAFXR</DataTable.Cell>
+                  <DataTable.Cell>
+                    Gorilla Ankle Fracture Kit. R3CON
+                  </DataTable.Cell>
+                  <DataTable.Cell>6.0</DataTable.Cell>
+                  <DataTable.Cell>Agency</DataTable.Cell>
+                  <DataTable.Cell numeric>X</DataTable.Cell>
+                </DataTable.Row>
+
+                <DataTable.Pagination
+                  page={1}
+                  numberOfPages={3}
+                  onPageChange={(page) => {
+                    console.log(page);
+                  }}
+                  label="1-2 of 6"
+                />
+              </DataTable>
             </View>
           </View>
         </View>

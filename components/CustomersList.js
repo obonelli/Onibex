@@ -14,6 +14,7 @@ import {
   Pressable
 } from "react-native";
 import { Button, Divider, Icon, Input, ListItem } from "react-native-elements";
+import { Searchbar } from 'react-native-paper';
 
 const DATA = [
   {
@@ -116,6 +117,9 @@ const CustomersList = () => {
   const [modalStyle] = React.useState(getModalStyle);
   const [modalVisible, setModalVisible] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const onChangeSearch = query => setSearchQuery(query);
 
   const handleOpen = () => {
     setOpen(true);
@@ -194,7 +198,7 @@ const CustomersList = () => {
   );
 
   return (
-    <View>
+    <View styles={styles.mainView}>
        <Modal
         animationType="slide"
         transparent={true}
@@ -216,20 +220,13 @@ const CustomersList = () => {
           </View>
         </View>
       </Modal>
-      <Text style={styles.maintitle}>Customers</Text>
       <View style={styles.root}>
-        <Input
-          style={styles.searchInput}
-          placeholder="Search Customers by Name, Email and Address"
-          leftIcon={
-            <Icon
-              style={styles.searchIcon}
-              name="search"
-              size={24}
-              color="gray"
-            />
-          }
-        />
+        <Searchbar
+        style={styles.searchBar}
+        placeholder="Search Customers by Name, Email and Address"
+        onChangeText={onChangeSearch}
+        value={searchQuery}
+      />
       </View>
       <Divider style={styles.divider} orientation="vertical" />
       <View style={styles.FirstContainer}>
@@ -367,5 +364,11 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
+  },
+  searchBar: {
+    height: 48,
+  },
+  mainView: {
+    marginTop: "50%"
   }
 });

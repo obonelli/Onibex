@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from "react-native";
+import { View, Text, Platform } from "react-native";
 import { Input, Button } from "react-native-elements";
 import Wrapper from "../../commons/Wrapper";
 import styles from "./styles";
+import {Picker} from '@react-native-picker/picker';
+import DatePicker from 'react-datepicker'
 
 const StepHospital = (props) => {
-  const [token, setToken] = useState('');
-  const [date, setDate] = useState(new Date());
-  const handleCalendarClose = () => console.log("Calendar closed");
-  const handleCalendarOpen = () => console.log("Calendar opened");
-
+  const [chosenDate, setChosenDate] = useState(new Date());
+  const [selectedValue, setSelectedValue] = useState("java");
 
   // useEffect(() => {
   //   axios.get(`http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/API_SALES_QUOTATION_SRV/$metadata?sap-client=100`)
@@ -64,6 +63,16 @@ const StepHospital = (props) => {
               containerStyle={{ width: "33%" }}
               label="New Ship-to Address"
             />
+          </View>
+          <View style={styles.row}>
+          <Picker
+            selectedValue={selectedValue}
+            style={{ height: 50, width: 150 }}
+            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+          </Picker>
           </View>
         </View>
       </Wrapper>

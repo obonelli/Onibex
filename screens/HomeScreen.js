@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { Avatar, Button } from 'react-native-elements';
+import { SafeAreaView, ScrollView, StyleSheet, TouchableOpacity, View , Text} from 'react-native';
+import { Avatar, Button, ListItem } from 'react-native-elements';
 import CustomersList from "../components/CustomersList";
 import CustomListItem from "../components/CustomListitem";
 //import { auth, db } from "../firebase";
@@ -18,13 +18,15 @@ const HomeScreen = ({ navigation }) => {
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            flex: 0.5,
-            title: "Luis Garcia",
-            headerStyle: { backgroundColor: "white"},
-            headerTitleStyle: { color: "black" },
+            flex: 1,
+            title: "Customers",
+            headerStyle: { backgroundColor: "#f5f5f5"},
+            headerTitleAlign: "left",
+            headerTitleStyle: { color: "black" , paddingLeft: "17.5%",fontSize: 24},
             headerTintColor: "black",
-            headerLeft: () => <View style={{ marginLeft: 20 }}>
-                <TouchableOpacity onPress={signOutUser} activeOpacity={0.5}>
+            headerLeft: () => <View style={{ marginLeft: 0 , width: "140%",height: "140%",backgroundColor: "white"}}>
+                <TouchableOpacity onPress={signOutUser} activeOpacity={0.5}> 
+                <ListItem style={styles.avatarList}>
                 <Avatar
                 rounded
                 source={{
@@ -32,6 +34,10 @@ const HomeScreen = ({ navigation }) => {
                         "https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png",
                 }}
                 ></Avatar>
+                  <ListItem.Content>
+                    <ListItem.Title>Liz Gilbert</ListItem.Title>
+                </ListItem.Content>
+                </ListItem>  
                 </TouchableOpacity>
             </View>,
         });
@@ -105,5 +111,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',  
         width: width_proportion_main,
         height: height_proportion
+    },
+    avatarList: {
+        backgroundColor: "white",
+        width: "100%",
+        marginLeft: 20,
     }
 })

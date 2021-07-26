@@ -27,6 +27,14 @@ const signIn = () => {
       .catch((error) => alert(error));*/
       navigation.replace("Home");
 }
+
+const handlePassword = (value) => {
+  setPassword(value);
+};
+
+const handleEmail = (value) => {
+  setEmail(value);
+};
   return (
     <View style={styles.container}>
       <View style={styles.wrapperForm}>
@@ -38,16 +46,17 @@ const signIn = () => {
         <TextInput 
           style={styles.input}
           autoFocus type= "email"
-          value=""
-          /*onChangeTest={(text) => setEmail(text)}*/
+          value={email}
+          onChange={handleEmail}
         />
         <Text style={styles.label}>Password</Text>
         <TextInput 
           style={styles.input}
           secureTextEntry
           type="password"
-          value=""
-          /*onChangeText={(text) => setPassword(text)}*/ 
+          value={password}
+          onChange={handlePassword}
+          
         />
       <TouchableOpacity
           style={styles.loginScreenButton}
